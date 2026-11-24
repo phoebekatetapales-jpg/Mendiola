@@ -45,8 +45,16 @@
     row-gap: var(--space-section);
   }
 
-  .scatter__crop:nth-child(n + 4) {
+  /* Park cards: keep two each side (1, 2 left; 4, 5 right) */
+  .scatter__crop:nth-child(3),
+  .scatter__crop:nth-child(n + 6) {
     display: none;
+  }
+
+  /* Move card 2 to the edge so it clears the centre text */
+  .scatter__crop:nth-child(2) {
+    left: 4%;
+    top: 58%;
   }
 }
 
@@ -56,7 +64,7 @@
     grid-template-columns: 1fr;
   }
 
-  /* Park cards: drop the scattered layout and show three in a row under the text */
+  /* Park cards: drop the scattered layout and show a 2 × 2 grid under the text */
   .scatter {
     min-height: 0;
     display: flex;
@@ -77,16 +85,16 @@
     position: relative;
     left: auto;
     top: auto;
-    width: calc((100% - 20px) / 3);
+    width: calc((100% - 14px) / 2);
   }
 
   .scatter__card {
-    padding: 5px 5px 0;
+    padding: 7px 7px 0;
   }
 
   .scatter__card figcaption {
-    padding: 7px 0 8px;
-    font-size: 12px;
+    padding: 9px 0 10px;
+    font-size: 14px;
   }
 }
 

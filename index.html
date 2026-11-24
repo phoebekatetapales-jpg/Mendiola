@@ -269,6 +269,18 @@
           <figcaption>Modern homes</figcaption>
         </figure>
       </div>
+      <div class="scatter__crop">
+        <figure class="scatter__card" data-card>
+          <div class="scatter__photo"><img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=500&q=70" alt="House with a garden and swimming pool" loading="lazy"></div>
+          <figcaption>Outdoor living</figcaption>
+        </figure>
+      </div>
+      <div class="scatter__crop">
+        <figure class="scatter__card" data-card>
+          <div class="scatter__photo"><img src="https://images.unsplash.com/photo-1523217582562-09d0def993a6?auto=format&fit=crop&w=500&q=70" alt="White house with a small front garden" loading="lazy"></div>
+          <figcaption>Bright homes</figcaption>
+        </figure>
+      </div>
       <div class="scatter__center" data-stagger>
         <p class="eyebrow" data-reveal>Park and playground</p>
         <p class="statement" data-reveal>A shared green at the heart of every block, a short walk from every door.</p>
@@ -310,7 +322,16 @@
         <h2 class="statement" data-reveal>Walk the lots, the park and the community green with us.</h2>
         <p class="body" data-reveal>Tell us which block you are interested in and we will arrange a site visit and share the current lot availability.</p>
 
-        <form data-form novalidate data-reveal>
+        <!--
+          FORMSPREE: replace YOUR_FORM_ID below with the ID of your form
+          (the part after /f/ in the endpoint Formspree gives you).
+        -->
+        <form data-form novalidate data-reveal action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+          <!-- Subject line of the email Formspree sends you -->
+          <input type="hidden" name="_subject" value="New Mendiola site visit enquiry">
+          <!-- Spam trap: hidden from people, bots fill it in and get ignored -->
+          <input type="text" name="_gotcha" class="visually-hidden" tabindex="-1" autocomplete="off" aria-hidden="true">
+
           <label for="f-name">Name</label>
           <input id="f-name" name="name" autocomplete="name" required>
 

@@ -492,7 +492,7 @@
 /* ---- Scattered photo field (Park and playground) ---- */
 .scatter {
   position: relative;
-  min-height: 760px;
+  min-height: clamp(760px, 64vw, 1000px);
   display: grid;
   place-items: center;
   padding: var(--space-section-lg) var(--space-gutter);
@@ -522,7 +522,7 @@
 /* The card: photo-print style frame with a caption, slightly tilted */
 .scatter__card {
   margin: 0;
-  padding: var(--space-card) var(--space-card) 0;
+  padding: 10px 10px 0;
   background: var(--bone);
   border-radius: var(--radius-chip);
   box-shadow:
@@ -550,9 +550,9 @@
 }
 
 .scatter__card figcaption {
-  padding: 10px 2px 12px;
+  padding: 12px 2px 14px;
   font-family: var(--font-serif);
-  font-size: 15px;
+  font-size: clamp(14px, 1.25vw, 18px);
   font-weight: 310;
   line-height: 1;
   text-align: left;
@@ -562,7 +562,7 @@
 /* Hover: card straightens, lifts and grows; photo zooms in */
 .scatter__crop:hover .scatter__card {
   rotate: 0deg;
-  transform: translateY(-8px) scale(1.12);
+  transform: translateY(-8px) scale(1.06);
   box-shadow:
     0 4px 8px rgba(55, 63, 29, 0.1),
     0 36px 60px -20px rgba(55, 63, 29, 0.55);
@@ -573,13 +573,16 @@
 }
 
 /* Per-card position, size, tilt, photo shape, and the direction it flies in from.
+   Widths use vw so the cards stay big on wide screens and shrink on smaller ones.
    --fx / --fy point toward the centre of the section, so cards fly outward. */
-.scatter__crop:nth-child(1) { left: 6%;  top: 8%;  width: 150px; --tilt: -6deg; --ratio: 1 / 1; --fx: 180px;  --fy: 120px; }
-.scatter__crop:nth-child(2) { left: 19%; top: 54%; width: 130px; --tilt: 4deg;  --ratio: 4 / 5; --fx: 140px;  --fy: -60px; }
-.scatter__crop:nth-child(3) { left: 3%;  top: 64%; width: 135px; --tilt: -3deg; --ratio: 1 / 1; --fx: 220px;  --fy: -120px; }
-.scatter__crop:nth-child(4) { left: 77%; top: 6%;  width: 165px; --tilt: 5deg;  --ratio: 5 / 4; --fx: -180px; --fy: 120px; }
-.scatter__crop:nth-child(5) { left: 85%; top: 50%; width: 135px; --tilt: -4deg; --ratio: 4 / 5; --fx: -220px; --fy: -40px; }
-.scatter__crop:nth-child(6) { left: 68%; top: 68%; width: 145px; --tilt: 3deg;  --ratio: 1 / 1; --fx: -140px; --fy: -120px; }
+.scatter__crop:nth-child(1) { left: 3%;  top: 5%;  width: clamp(150px, 18vw, 280px);   --tilt: -6deg; --ratio: 1 / 1; --fx: 240px;  --fy: 160px; }
+.scatter__crop:nth-child(2) { left: 17%; top: 50%; width: clamp(130px, 15.3vw, 240px); --tilt: 4deg;  --ratio: 4 / 5; --fx: 200px;  --fy: -60px; }
+.scatter__crop:nth-child(3) { left: 2%;  top: 63%; width: clamp(120px, 14vw, 220px);   --tilt: -3deg; --ratio: 1 / 1; --fx: 300px;  --fy: -160px; }
+.scatter__crop:nth-child(4) { left: 74%; top: 4%;  width: clamp(160px, 20.8vw, 320px); --tilt: 5deg;  --ratio: 5 / 4; --fx: -240px; --fy: 160px; }
+.scatter__crop:nth-child(5) { left: 82%; top: 50%; width: clamp(130px, 15.3vw, 240px); --tilt: -4deg; --ratio: 4 / 5; --fx: -300px; --fy: -40px; }
+.scatter__crop:nth-child(6) { left: 60%; top: 64%; width: clamp(130px, 16vw, 250px);   --tilt: 3deg;  --ratio: 1 / 1; --fx: -160px; --fy: -200px; }
+.scatter__crop:nth-child(7) { left: 32%; top: 6%;  width: clamp(110px, 12.5vw, 200px); --tilt: 3deg;  --ratio: 4 / 5; --fx: 120px;  --fy: 220px; }
+.scatter__crop:nth-child(8) { left: 54%; top: 2%;  width: clamp(110px, 11.8vw, 190px); --tilt: -5deg; --ratio: 1 / 1; --fx: -80px;  --fy: 240px; }
 
 /* ---- Pull quote ---- */
 .quote {

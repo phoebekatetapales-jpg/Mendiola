@@ -237,13 +237,24 @@
   }
 
   /* ---- Enquiry form ----
-     Front-end only: connect to your email service or backend. */
+     Sends to Formspree (the form's action URL) without leaving the page.
+     Without JavaScript the form still posts to Formspree normally. */
   function initEnquiryForm() {
     const form = document.querySelector('[data-form]');
     const note = document.querySelector('[data-form-note]');
     if (!form || !note) return;
 
-    form.addEventListener('submit', (e) => {
+    const submitBtn = form.querySelector('[type="submit"]');
+    const submitLabel = submitBtn.querySelector('.btn__label');
+    const defaultLabel = submitLabel.textContent;
+
+    function setSending(sending) {
+      submitBtn.disabled = sending;
+      submitBtn.style.opacity = sending ? '0.6' : '';
+      submitLabel.textContent = sending ? 'Sending…' : defaultLabel;
+    }
+
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
 
       if (!form.checkValidity()) {
@@ -251,8 +262,37 @@
         return;
       }
 
-      note.textContent = 'Thank you — we will be in touch to arrange your visit.';
-      form.reset();
+      if (form.action.includes('YOUR_FORM_ID')) {
+        note.textContent = 'This form is not connected yet. Please try again later.';
+        console.warn('Enquiry form: set your Formspree form ID in the form action in index.html.');
+        return;
+      }
+
+      setSending(true);
+      note.textContent = '';
+
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { Accept: 'application/json' },
+        });
+
+        if (response.ok) {
+          note.textContent = 'Thank you — we will be in touch to arrange your visit.';
+          form.reset();
+        } else {
+          const data = await response.json().catch(() => ({}));
+          const message = data.errors ? data.errors.map((err) => err.message).join(', ') : '';
+          note.textContent = message
+            ? `Sorry, something went wrong: ${message}`
+            : 'Sorry, something went wrong. Please try again.';
+        }
+      } catch (err) {
+        note.textContent = 'Could not send — please check your connection and try again.';
+      } finally {
+        setSending(false);
+      }
     });
   }
 

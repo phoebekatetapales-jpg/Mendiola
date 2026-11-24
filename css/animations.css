@@ -175,6 +175,8 @@
 .scatter__crop:nth-child(5) .scatter__card { --delay: 0.3s; }
 .scatter__crop:nth-child(3) .scatter__card { --delay: 0.4s; }
 .scatter__crop:nth-child(6) .scatter__card { --delay: 0.5s; }
+.scatter__crop:nth-child(7) .scatter__card { --delay: 0.6s; }
+.scatter__crop:nth-child(8) .scatter__card { --delay: 0.7s; }
 
 .scatter__crop {
   animation: float 5s ease-in-out infinite alternate;
@@ -190,6 +192,8 @@
 .scatter__crop:nth-child(4) { animation-duration: 5.5s; animation-delay: -3s; }
 .scatter__crop:nth-child(5) { animation-duration: 6.5s; animation-delay: -1.5s; }
 .scatter__crop:nth-child(6) { animation-duration: 5s;   animation-delay: -2.5s; }
+.scatter__crop:nth-child(7) { animation-duration: 5.8s; animation-delay: -0.5s; }
+.scatter__crop:nth-child(8) { animation-duration: 4.8s; animation-delay: -3.5s; }
 
 /* ---- Reduced motion: keep everything visible and still ---- */
 @media (prefers-reduced-motion: reduce) {
