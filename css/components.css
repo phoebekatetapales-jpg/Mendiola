@@ -2,7 +2,9 @@
    Components: reusable UI pieces
    ========================================================= */
 
-/* ---- Label button ---- */
+/* ---- Label button ----
+   Hover: colour fills in from the left, the arrow flies out
+   and back in, and the gap opens slightly. Press: shrinks. */
 .btn {
   display: inline-flex;
   gap: var(--space-chip-gap);
@@ -14,14 +16,35 @@
   font: inherit;
   text-decoration: none;
   cursor: pointer;
+  transition: gap 0.4s var(--ease-out-expo), transform 0.2s ease;
 }
 
 .btn__label,
 .btn__arrow {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
   background: var(--sage-chip);
   color: var(--thicket-ink);
   border-radius: var(--radius-chip);
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: color 0.4s ease;
+}
+
+/* The fill that sweeps in on hover */
+.btn__label::before,
+.btn__arrow::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--btn-fill, var(--thicket-ink));
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.5s var(--ease-out-expo);
+}
+
+.btn__arrow::before {
+  transition-delay: 0.06s;
 }
 
 .btn__label {
@@ -47,10 +70,32 @@
   stroke-width: 1.2;
 }
 
+.btn:hover,
+.btn:focus-visible {
+  gap: 6px;
+}
+
 .btn:hover .btn__label,
-.btn:hover .btn__arrow {
-  background: var(--thicket-ink);
-  color: var(--sand-canvas);
+.btn:hover .btn__arrow,
+.btn:focus-visible .btn__label,
+.btn:focus-visible .btn__arrow {
+  color: var(--btn-fill-text, var(--sand-canvas));
+}
+
+.btn:hover .btn__label::before,
+.btn:hover .btn__arrow::before,
+.btn:focus-visible .btn__label::before,
+.btn:focus-visible .btn__arrow::before {
+  transform: scaleX(1);
+}
+
+.btn:hover .btn__arrow svg,
+.btn:focus-visible .btn__arrow svg {
+  animation: arrow-fly 0.6s var(--ease-out-expo);
+}
+
+.btn:active {
+  transform: scale(0.96);
 }
 
 .btn:focus-visible {
@@ -59,19 +104,28 @@
 }
 
 /* Bone variant (for dark/photo backgrounds) */
+.btn--bone {
+  --btn-fill: var(--thicket-ink);
+  --btn-fill-text: var(--bone);
+}
+
 .btn--bone .btn__label,
 .btn--bone .btn__arrow {
   background: var(--bone);
 }
 
-.btn--bone:hover .btn__label,
-.btn--bone:hover .btn__arrow {
-  background: var(--sand-canvas);
-  color: var(--thicket-ink);
-}
-
 .btn--bone:focus-visible {
   outline-color: var(--bone);
+}
+
+/* Left-pointing arrow (for "Prev") */
+.btn__arrow--back svg {
+  transform: rotate(-90deg);
+}
+
+.btn:hover .btn__arrow--back svg,
+.btn:focus-visible .btn__arrow--back svg {
+  animation: arrow-fly-back 0.6s var(--ease-out-expo);
 }
 
 /* ---- Film (photo/video ground + scrim) ---- */
@@ -105,7 +159,6 @@
   z-index: 2;
 }
 
-.film > .header,
 .film > .photo__overlay {
   position: absolute;
   z-index: 20;
@@ -135,7 +188,7 @@
 }
 
 .card:hover .photo img {
-  transform: scale(1.03);
+  transform: scale(1.06);
 }
 
 .photo--tall {
@@ -158,16 +211,54 @@
   color: var(--bone);
 }
 
-/* ---- Beadwork stripe ---- */
+/* Chip that slides up over the photo on card hover */
+.photo__tag {
+  position: absolute;
+  right: var(--space-gutter);
+  bottom: var(--space-gutter);
+  z-index: 3;
+  padding: var(--space-chip-gap) var(--space-card);
+  border-radius: var(--radius-chip);
+  background: var(--bone);
+  color: var(--thicket-ink);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 14px;
+  text-transform: uppercase;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.4s ease, transform 0.6s var(--ease-out-expo);
+}
+
+.card:hover .photo__tag,
+.card:focus-visible .photo__tag {
+  opacity: 1;
+  transform: none;
+}
+
+/* Title underline that draws in on hover */
+.card-title {
+  background: linear-gradient(currentColor, currentColor) left bottom / 0 1px no-repeat;
+  transition: background-size 0.6s var(--ease-out-expo);
+  justify-self: start;
+  align-self: flex-start;
+}
+
+.card:hover .card-title {
+  background-size: 100% 1px;
+}
+
+/* ---- Beadwork stripe (pattern drifts slowly) ---- */
 .beadwork {
   height: 10px;
   background:
-    linear-gradient(var(--river-teal), var(--river-teal)) left bottom / 100% 2px no-repeat,
-    repeating-linear-gradient(
+    linear-gradient(var(--river-teal), var(--river-teal)) 0 100% / 100% 2px no-repeat,
+    linear-gradient(
       90deg,
       var(--bushveld-olive) 0 110px,
       var(--acacia-gold) 110px 120px,
       var(--bushveld-olive) 120px 180px,
       var(--acacia-gold) 180px 190px
-    ) left top / 100% 8px no-repeat;
+    ) 0 0 / 190px 8px repeat-x;
+  animation: bead-drift 12s linear infinite;
 }

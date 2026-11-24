@@ -27,8 +27,17 @@
     margin-left: 0;
   }
 
-  .hero__title span + span {
+  .hero__title .line + .line {
     padding-left: 20%;
+  }
+
+  .stats {
+    grid-template-columns: 1fr 1fr;
+    row-gap: var(--space-section);
+  }
+
+  .hero__cue {
+    display: none;
   }
 
   .footer__cols {
@@ -56,12 +65,4 @@
   }
 }
 
-/* ---- Reduced motion ---- */
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    transition: none !important;
-    scroll-behavior: auto !important;
-  }
-}
+/* Reduced-motion rules live in animations.css */
