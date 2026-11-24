@@ -56,12 +56,37 @@
     grid-template-columns: 1fr;
   }
 
+  /* Park cards: drop the scattered layout and show three in a row under the text */
   .scatter {
     min-height: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-gutter) 10px;
   }
 
-  .scatter__crop {
-    display: none;
+  .scatter__center {
+    order: -1;
+    width: 100%;
+    margin-bottom: var(--space-gutter);
+  }
+
+  /* :nth-child(n) matches every card but is specific enough
+     to override the per-card positions in sections.css */
+  .scatter__crop:nth-child(n) {
+    position: relative;
+    left: auto;
+    top: auto;
+    width: calc((100% - 20px) / 3);
+  }
+
+  .scatter__card {
+    padding: 5px 5px 0;
+  }
+
+  .scatter__card figcaption {
+    padding: 7px 0 8px;
+    font-size: 12px;
   }
 }
 

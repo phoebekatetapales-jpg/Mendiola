@@ -96,7 +96,8 @@
      Elements with [data-reveal] fade/slide in when they enter the screen.
      Children of a [data-stagger] parent come in one after another. */
   function initReveal() {
-    const items = document.querySelectorAll('[data-reveal]');
+    // [data-card] = park and playground cards (they use their own fly-in animation)
+    const items = document.querySelectorAll('[data-reveal], [data-card]');
     if (!items.length) return;
 
     document.querySelectorAll('[data-stagger]').forEach((group) => {
