@@ -1,0 +1,173 @@
+/* =========================================================
+   Components: reusable UI pieces
+   ========================================================= */
+
+/* ---- Label button ---- */
+.btn {
+  display: inline-flex;
+  gap: var(--space-chip-gap);
+  align-items: stretch;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--thicket-ink);
+  font: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn__label,
+.btn__arrow {
+  background: var(--sage-chip);
+  color: var(--thicket-ink);
+  border-radius: var(--radius-chip);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn__label {
+  padding: var(--space-chip-gap) var(--space-card);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 14px;
+  letter-spacing: -0.28px;
+  text-transform: uppercase;
+}
+
+.btn__arrow {
+  width: 22px;
+  display: grid;
+  place-items: center;
+}
+
+.btn__arrow svg {
+  width: 10px;
+  height: 10px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.2;
+}
+
+.btn:hover .btn__label,
+.btn:hover .btn__arrow {
+  background: var(--thicket-ink);
+  color: var(--sand-canvas);
+}
+
+.btn:focus-visible {
+  outline: 1px solid var(--thicket-ink);
+  outline-offset: 3px;
+}
+
+/* Bone variant (for dark/photo backgrounds) */
+.btn--bone .btn__label,
+.btn--bone .btn__arrow {
+  background: var(--bone);
+}
+
+.btn--bone:hover .btn__label,
+.btn--bone:hover .btn__arrow {
+  background: var(--sand-canvas);
+  color: var(--thicket-ink);
+}
+
+.btn--bone:focus-visible {
+  outline-color: var(--bone);
+}
+
+/* ---- Film (photo/video ground + scrim) ---- */
+.film {
+  position: relative;
+  overflow: hidden;
+  background: var(--thicket-ink);
+  color: var(--bone);
+}
+
+.film > .film__media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.film::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 45%, var(--scrim-black) 100%);
+  pointer-events: none;
+}
+
+.film > :where(:not(.film__media)) {
+  position: relative;
+  z-index: 2;
+}
+
+.film > .header,
+.film > .photo__overlay {
+  position: absolute;
+  z-index: 20;
+}
+
+/* ---- Photo / card ---- */
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-card);
+  color: var(--thicket-ink);
+  text-decoration: none;
+}
+
+.photo {
+  position: relative;
+  overflow: hidden;
+  background: var(--sage-chip);
+  border-radius: var(--radius-none);
+}
+
+.photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.6s var(--ease-out-expo);
+}
+
+.card:hover .photo img {
+  transform: scale(1.03);
+}
+
+.photo--tall {
+  aspect-ratio: 3 / 4;
+}
+
+.photo.film {
+  background: var(--thicket-ink);
+}
+
+.photo__overlay {
+  position: absolute;
+  left: var(--space-gutter);
+  bottom: var(--space-gutter);
+  font-family: var(--font-serif);
+  font-size: var(--fs-statement);
+  font-weight: 310;
+  line-height: 1;
+  text-transform: uppercase;
+  color: var(--bone);
+}
+
+/* ---- Beadwork stripe ---- */
+.beadwork {
+  height: 10px;
+  background:
+    linear-gradient(var(--river-teal), var(--river-teal)) left bottom / 100% 2px no-repeat,
+    repeating-linear-gradient(
+      90deg,
+      var(--bushveld-olive) 0 110px,
+      var(--acacia-gold) 110px 120px,
+      var(--bushveld-olive) 120px 180px,
+      var(--acacia-gold) 180px 190px
+    ) left top / 100% 8px no-repeat;
+}

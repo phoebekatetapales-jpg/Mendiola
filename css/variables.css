@@ -1,0 +1,41 @@
+/* =========================================================
+   Design tokens (from the Mendiola design system)
+   ========================================================= */
+
+:root {
+  /* ---- Colors ---- */
+  --sand-canvas: #f5eee9;
+  --bone: #fbf8f6;
+  --sage-chip: #e3e1d4;
+  --thicket-ink: #373f1d;
+  --bushveld-olive: #5c6e21;
+  --lichen-gray: #a5a593;
+  --acacia-gold: #8f8500;
+  --river-teal: #00443b;
+  --scrim-black: #000000;
+  --white: #ffffff;
+
+  /* ---- Fonts ---- */
+  --font-serif: "PP Fragment", Newsreader, Georgia, serif;
+  --font-sans: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  /* ---- Spacing ---- */
+  --space-chip-gap: 4px;
+  --space-card: 8px;
+  --space-gutter: 17.78px;
+  --space-section: 88px;
+  --space-section-lg: 176px;
+
+  /* ---- Radius ---- */
+  --radius-none: 0px;
+  --radius-chip: 2px;
+
+  /* ---- Fluid type (sizes scale from a 1440px design) ---- */
+  --fs-display: clamp(56px, 9.26vw, 133.33px);
+  --fs-quote: clamp(32px, 3.7vw, 53.33px);
+  --lh-quote: 1.1;
+  --fs-statement: clamp(24px, 2.22vw, 32px);
+
+  /* ---- Motion ---- */
+  --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+}

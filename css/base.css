@@ -1,0 +1,111 @@
+/* =========================================================
+   Base: reset, typography, utilities
+   ========================================================= */
+
+/* ---- Reset ---- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--sand-canvas);
+  color: var(--thicket-ink);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.25;
+  letter-spacing: -0.16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+body.is-locked {
+  overflow: hidden;
+}
+
+img,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+}
+
+/* ---- Utilities ---- */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.svg-sprite {
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+
+/* ---- Typography ---- */
+.eyebrow {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.14px;
+  text-transform: uppercase;
+}
+
+.body {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.25;
+  letter-spacing: -0.16px;
+}
+
+.caption {
+  font-size: 14px;
+  line-height: 1.25;
+  letter-spacing: -0.14px;
+}
+
+.statement {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: var(--fs-statement);
+  font-weight: 310;
+  line-height: 1.15;
+}
+
+.card-title {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: 20px;
+  font-weight: 310;
+  line-height: 24px;
+}
+
+.lede {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: 18px;
+  font-weight: 310;
+  line-height: 1.1;
+}
+
+.olive-text {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: var(--fs-quote);
+  font-weight: 220;
+  line-height: var(--lh-quote);
+  color: var(--bushveld-olive);
+}

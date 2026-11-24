@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mendiola — A planned residential community</title>
+  <meta name="description" content="Mendiola: 239 residential lots on 42,245 square metres, set around a park, a playground and a community green.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Newsreader:opsz,wght@6..72,200..800&display=swap" rel="stylesheet">
+
+  <!-- Styles (order matters: tokens → base → components → sections → responsive) -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/sections.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <!-- Scripts -->
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+
+  <!-- Reusable arrow icon for buttons -->
+  <svg class="svg-sprite" aria-hidden="true">
+    <symbol id="arrow" viewBox="0 0 10 10"><path d="M1.5 8.5 8.5 1.5M3 1.5h5.5V7"/></symbol>
+  </svg>
+
+  <!-- ===================== HEADER + HERO ===================== -->
+  <section class="film hero" id="top">
+    <!-- Replace with your aerial film or hero photo:
+    <video class="film__media" src="assets/hero.mp4" autoplay muted loop playsinline poster="assets/hero.jpg"></video> -->
+
+    <header class="header">
+      <a class="eyebrow" href="#enquire">Enquire</a>
+      <a class="wordmark" href="#top" aria-label="Mendiola home">Mendiola</a>
+      <button class="eyebrow header__right" type="button" data-menu-open aria-expanded="false" aria-controls="menu">Menu</button>
+    </header>
+
+    <div class="hero__inner">
+      <div class="hero__mid">
+        <p class="lede">A planned residential community of 239 lots, set around one open green.</p>
+        <a class="btn btn--bone" href="#plan">
+          <span class="btn__label">Explore the plan</span>
+          <span class="btn__arrow"><svg><use href="#arrow"/></svg></span>
+        </a>
+      </div>
+      <h1 class="hero__title"><span>Room</span><span>to grow</span></h1>
+    </div>
+  </section>
+
+  <div class="beadwork" role="presentation"></div>
+
+  <!-- ===================== MENU OVERLAY ===================== -->
+  <div class="menu" id="menu" data-open="false" aria-hidden="true">
+    <div class="menu__top">
+      <span class="eyebrow">Mendiola</span>
+      <button class="eyebrow menu__close" type="button" data-menu-close>Close</button>
+    </div>
+    <nav aria-label="Main">
+      <a href="#community" data-menu-link>The community</a>
+      <a href="#blocks" data-menu-link>Blocks</a>
+      <a href="#plan" data-menu-link>Site plan</a>
+      <a href="#open-space" data-menu-link>Open space</a>
+      <a href="#enquire" data-menu-link>Plan a visit</a>
+    </nav>
+  </div>
+
+  <main>
+    <!-- ===================== THE COMMUNITY ===================== -->
+    <section class="split" id="community">
+      <p class="eyebrow">The community</p>
+      <div class="split__body">
+        <p class="statement">Two hundred and thirty-nine homes, laid out around a park, a playground and a hall for everyone who lives here.</p>
+        <p class="body">Mendiola is planned on 42,245 square metres. Seventy percent becomes private lots; the remaining thirty is given back to roads, open green and community facilities.</p>
+        <a class="btn" href="#plan">
+          <span class="btn__label">See the land plan</span>
+          <span class="btn__arrow"><svg><use href="#arrow"/></svg></span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ===================== BLOCKS ===================== -->
+    <section id="blocks">
+      <h2 class="visually-hidden">Blocks</h2>
+      <div class="grid-3">
+        <a class="card" href="#enquire">
+          <div class="photo photo--tall"><!-- <img src="assets/block-1.jpg" alt=""> --></div>
+          <h3 class="card-title">Block 1</h3>
+          <p class="caption">Lots along the northern boundary</p>
+        </a>
+        <a class="card" href="#enquire">
+          <div class="photo photo--tall"><!-- <img src="assets/block-4.jpg" alt=""> --></div>
+          <h3 class="card-title">Block 4</h3>
+          <p class="caption">Facing the open green</p>
+        </a>
+        <a class="card" href="#enquire">
+          <div class="photo photo--tall film"><span class="photo__overlay">Coming soon</span></div>
+          <h3 class="card-title">Block 9</h3>
+          <p class="caption">Release to follow</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- ===================== OPEN SPACE ===================== -->
+    <section class="olive" id="open-space">
+      <p class="eyebrow">Open space</p>
+      <p class="olive-text">Nearly a third of the land is kept open — 9,904 square metres of road, a 1,537 square-metre park and playground, and a 1,242 square-metre community green at the centre of the plan.</p>
+    </section>
+
+    <!-- ===================== SITE PLAN + LAND ALLOCATION ===================== -->
+    <section class="plan" id="plan">
+      <div class="plan__caption">
+        <p class="eyebrow">Site development plan</p>
+        <p class="statement">Nine blocks, one central green, and a ring of roads that reaches every lot.</p>
+        <p class="body">Lot 12-A and Lot 6-C combined: 42,245 square metres, 255 lots generated, 239 for distribution.</p>
+        <a class="btn" href="assets/mendiola-site-plan.pdf" download>
+          <span class="btn__label">Download the plan (PDF)</span>
+          <span class="btn__arrow"><svg><use href="#arrow"/></svg></span>
+        </a>
+
+        <table class="alloc">
+          <caption class="visually-hidden">Land allocation data</caption>
+          <thead>
+            <tr><th>Use</th><th class="num">Area</th><th class="num">Share</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Total area for development</td><td class="num">42,245 sq.m.</td><td class="num">100%</td></tr>
+            <tr class="sub"><td>Lot 12-A</td><td class="num">40,000 sq.m.</td><td class="num">95%</td></tr>
+            <tr class="sub"><td>Lot 6-C</td><td class="num">2,245 sq.m.</td><td class="num">5%</td></tr>
+            <tr><td>Total area for distribution</td><td class="num">29,562 sq.m.</td><td class="num">70%</td></tr>
+            <tr><td>Total area for open space</td><td class="num">12,683 sq.m.</td><td class="num">30%</td></tr>
+            <tr class="sub"><td>Roads</td><td class="num">9,904 sq.m.</td><td class="num">23%</td></tr>
+            <tr class="sub"><td>Park and playground</td><td class="num">1,537 sq.m.</td><td class="num">4%</td></tr>
+            <tr class="sub"><td>Community facilities</td><td class="num">1,242 sq.m.</td><td class="num">3%</td></tr>
+            <tr><td>Total lots generated</td><td class="num">255 lots</td><td></td></tr>
+            <tr class="total"><td>Total lots for distribution</td><td class="num">239 lots</td><td></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <figure class="plan__img">
+        <img src="assets/mendiola-site-plan.png" alt="Mendiola site development plan: nine blocks of residential lots arranged around a central open space and community facilities, with the land allocation table at top right." loading="lazy">
+      </figure>
+    </section>
+
+    <!-- ===================== GALLERY ===================== -->
+    <section class="slider" aria-roledescription="carousel" aria-label="Gallery">
+      <div class="slider__track" data-track>
+        <div class="slider__slide"><div class="photo film"><!-- <img class="film__media" src="assets/gallery-1.jpg" alt=""> --></div></div>
+        <div class="slider__slide"><div class="photo"><!-- <img src="assets/gallery-2.jpg" alt=""> --></div></div>
+        <div class="slider__slide"><div class="photo film"><!-- <img class="film__media" src="assets/gallery-3.jpg" alt=""> --></div></div>
+      </div>
+      <div class="slider__nav">
+        <button class="btn btn--bone" type="button" data-prev>
+          <span class="btn__label">Prev</span>
+        </button>
+        <button class="btn btn--bone" type="button" data-next>
+          <span class="btn__label">Next</span>
+          <span class="btn__arrow"><svg><use href="#arrow"/></svg></span>
+        </button>
+      </div>
+      <span class="caption slider__count" data-count aria-live="polite">1 / 3</span>
+    </section>
+
+    <!-- ===================== PARK AND PLAYGROUND ===================== -->
+    <!-- Crop positions are set in css/sections.css (.scatter__crop:nth-child) -->
+    <section class="scatter">
+      <div class="scatter__crop"></div>
+      <div class="scatter__crop"></div>
+      <div class="scatter__crop"></div>
+      <div class="scatter__crop"></div>
+      <div class="scatter__crop"></div>
+      <div class="scatter__crop"></div>
+      <div class="scatter__center">
+        <p class="eyebrow">Park and playground</p>
+        <p class="statement">A shared green at the heart of every block, a short walk from every door.</p>
+        <a class="btn" href="#plan">
+          <span class="btn__label">Find the green</span>
+          <span class="btn__arrow"><svg><use href="#arrow"/></svg></span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ===================== PULL QUOTE ===================== -->
+    <figure class="quote">
+      <blockquote class="olive-text">“Thirty percent of the land is set aside for roads, a park and community facilities.”</blockquote>
+      <figcaption class="eyebrow">Land allocation data <span class="muted">— Mendiola site development plan</span></figcaption>
+    </figure>
+
+    <!-- ===================== ENQUIRY ===================== -->
+    <section class="film enquiry" id="enquire">
+      <!-- <img class="film__media" src="assets/enquiry.jpg" alt=""> -->
+      <div class="enquiry__body">
+        <p class="eyebrow">Plan a visit</p>
+        <h2 class="statement">Walk the lots, the park and the community green with us.</h2>
+        <p class="body">Tell us which block you are interested in and we will arrange a site visit and share the current lot availability.</p>
+
+        <form data-form novalidate>
+          <label for="f-name">Name</label>
+          <input id="f-name" name="name" autocomplete="name" required>
+
+          <label for="f-email">Email</label>
+          <input id="f-email" name="email" type="email" autocomplete="email" required>
+
+          <label for="f-phone">Mobile</label>
+          <input id="f-phone" name="phone" type="tel" autocomplete="tel">
+
+          <label for="f-block">Block of interest</label>
+          <select id="f-block" name="block">
+            <option value="">Any block</option>
+            <option>Block 1</option>
+            <option>Block 2</option>
+            <option>Block 3</option>
+            <option>Block 4</option>
+            <option>Block 5</option>
+            <option>Block 6</option>
+            <option>Block 7</option>
+            <option>Block 8</option>
+            <option>Block 9</option>
+          </select>
+
+          <button class="btn btn--bone" type="submit">
+            <span class="btn__label">Send enquiry</span>
+            <span class="btn__arrow"><svg><use href="#arrow"/></svg></span>
+          </button>
+          <p class="caption form-note" data-form-note aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="footer__cols">
+      <div>
+        <p class="eyebrow">The community</p>
+        <ul>
+          <li><a href="#community">Overview</a></li>
+          <li><a href="#blocks">Blocks</a></li>
+          <li><a href="#open-space">Open space</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="eyebrow">Lots</p>
+        <ul>
+          <li><a href="#plan">Site plan</a></li>
+          <li><a href="assets/mendiola-site-plan.pdf" download>Plan (PDF)</a></li>
+          <li><a href="#enquire">Availability</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="eyebrow">Living here</p>
+        <ul>
+          <li><a href="#open-space">Park and playground</a></li>
+          <li><a href="#open-space">Community facilities</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="eyebrow">Contact</p>
+        <ul>
+          <li><a href="#enquire">Enquire</a></li>
+          <li><a href="#enquire">Plan a visit</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="eyebrow">Updates</p>
+        <ul>
+          <li>
+            <a class="btn btn--bone" href="#enquire">
+              <span class="btn__label">Subscribe</span>
+              <span class="btn__arrow"><svg><use href="#arrow"/></svg></span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer__wordmark">Mendiola</div>
+
+    <div class="footer__bottom">
+      <span><a href="#">Privacy</a> &nbsp; <a href="#">Terms</a></span>
+      <span class="credit">© <span data-year></span> Mendiola</span>
+    </div>
+  </footer>
+
+</body>
+</html>

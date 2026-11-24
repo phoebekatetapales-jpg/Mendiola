@@ -1,0 +1,67 @@
+/* =========================================================
+   Responsive + accessibility overrides
+   ========================================================= */
+
+/* ---- Tablet ---- */
+@media (max-width: 900px) {
+  :root {
+    --space-section: 64px;
+    --space-section-lg: 112px;
+  }
+
+  .split,
+  .plan {
+    grid-template-columns: 1fr;
+  }
+
+  .plan__caption {
+    position: static;
+  }
+
+  .grid-3 {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .hero__mid,
+  .enquiry__body {
+    margin-left: 0;
+  }
+
+  .hero__title span + span {
+    padding-left: 20%;
+  }
+
+  .footer__cols {
+    grid-template-columns: 1fr 1fr;
+    row-gap: var(--space-section);
+  }
+
+  .scatter__crop:nth-child(n + 4) {
+    display: none;
+  }
+}
+
+/* ---- Phone ---- */
+@media (max-width: 560px) {
+  .grid-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .scatter {
+    min-height: 0;
+  }
+
+  .scatter__crop {
+    display: none;
+  }
+}
+
+/* ---- Reduced motion ---- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
